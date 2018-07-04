@@ -22,6 +22,9 @@ public class CashFlow extends OpasOrganizationObject implements Serializable {
 	/* unique cash flow reference numnber - 16 characters */
 	private String cashFlowReference;
 	
+	/* used in the field 108 in header block 3 */
+	private String messageUserReference;
+	
 	/* the trade that the cash flow is associated with */
 	private Trade trade;
 	
@@ -80,6 +83,14 @@ public class CashFlow extends OpasOrganizationObject implements Serializable {
 
 	public void setValueDate(Date valueDate) {
 		this.valueDate = valueDate;
+	}
+
+	public String getMessageUserReference() {
+		return messageUserReference;
+	}
+
+	public void setMessageUserReference(String messageUserReference) {
+		this.messageUserReference = messageUserReference;
 	}
 
 }
