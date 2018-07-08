@@ -12,10 +12,19 @@ public class Currency extends OpasOrganizationObject implements Serializable {
 
 	private static final String OFFSHORE_RENMINBI_CODE = "CNH";
 
+	private Long currencyId;
 	private String currencyCode;
 	private String settlementCurrencyCode;
 	private String confirmationCurrencyCode;
 	private boolean nonDeliverableCurrencyIndicator;
+
+	public Long getCurrencyId() {
+		return currencyId;
+	}
+
+	public void setCurrencyId(Long currencyId) {
+		this.currencyId = currencyId;
+	}
 
 	public String getCurrencyCode() {
 		return currencyCode;

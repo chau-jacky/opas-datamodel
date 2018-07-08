@@ -29,21 +29,29 @@ public class Book extends OpasOrganizationObject implements Serializable {
 	 */
 	private static final long serialVersionUID = -6583292297136670979L;
 
+	/* internal use, uniquely identify the book */
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
 	@Column(name = "BOOK_ID", nullable = false)
 	private Long bookId;
 
+	/* the short name of the book */
 	@Column(name = "BOOK_NAME", nullable = false, length = 32)
 	private String bookName;
 
+	/* the full description of the book */
 	@Column(name = "BOOK_DESCRIPTION", nullable = false, length = 256)
 	private String bookDescription;
+	
+	/* the book type, master, primary or secondary book */
+	private BookType bookType;
 
+	/* show whether the book is for trading or hedging */
 	@Enumerated(EnumType.STRING)
 	@Column(name = "BOOK_INDICATOR", nullable = false)
 	private BookIndicator bookIndicator;
 
+	/* show if the book is used for offshore rmb trade booking */
 	private boolean offshoreRmbIndicator;
 	
 	public Long getBookId() {
@@ -84,6 +92,14 @@ public class Book extends OpasOrganizationObject implements Serializable {
 
 	public void setOffshoreRmbIndicator(boolean offshoreRmbIndicator) {
 		this.offshoreRmbIndicator = offshoreRmbIndicator;
+	}
+
+	public BookType getBookType() {
+		return bookType;
+	}
+
+	public void setBookType(BookType bookType) {
+		this.bookType = bookType;
 	}
 
 }

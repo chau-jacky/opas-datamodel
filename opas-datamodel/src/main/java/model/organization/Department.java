@@ -7,10 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import model.OpasObject;
+import model.OpasOrganizationObject;
 
-
-public class Department extends OpasObject implements Serializable {
+public class Department extends OpasOrganizationObject implements Serializable {
 
 	/**
 	 * 
@@ -19,8 +18,8 @@ public class Department extends OpasObject implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "BUSINESS_CONTACT_ID", nullable = false)
-	private Long businessContactId;
+	@Column(name = "DEPARTMENT_ID", nullable = false)
+	private Long departmentId;
 	
 	private BusinessClass businessClass;
 	
@@ -39,20 +38,20 @@ public class Department extends OpasObject implements Serializable {
 	@Column(name = "TELEX_NUMBER", length = 29)
 	private String telexNumber;
 	
+	public Long getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
+	}
+	
 	public BusinessClass getBusinessClass() {
 		return businessClass;
 	}
 
 	public void setBusinessClass(BusinessClass businessClass) {
 		this.businessClass = businessClass;
-	}
-
-	public Long getBusinessContactId() {
-		return businessContactId;
-	}
-
-	public void setBusinessContactId(Long businessContactId) {
-		this.businessContactId = businessContactId;
 	}
 
 	public String getDepartmentName() {

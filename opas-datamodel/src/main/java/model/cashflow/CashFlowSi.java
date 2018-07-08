@@ -8,14 +8,16 @@ import model.OpasOrganizationObject;
 import model.trade.FundTransferSystem;
 import model.trade.PaymentIndicator;
 
-public class CashFlowSsi extends OpasOrganizationObject implements Serializable{
+public class CashFlowSi extends OpasOrganizationObject implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8365658912406895341L;
 
-	private long cashFlowId;
+	private Long cashFlowSiId;
+	
+	private CashFlow cashFlow;
 	
 	/* *****************
 	 * Basic Information 
@@ -78,14 +80,14 @@ public class CashFlowSsi extends OpasOrganizationObject implements Serializable{
 	private String intermediaryBankSwiftBicCode; /*GGTRIS*/
 	
 	/* Beneficiary or Remitting Bank Information */
-	private String beneficiaryBankNameLine1; /*GGTRN1*/
-	private String beneficiaryBankNameLine2; /*GGTRN2*/
-	private String beneficiaryBankClearingBankCode; /*GGTRSK*/
-	private String beneficiaryBankClearingSortCode; /*GGTRIR*/
-	private String beneficiaryBankAccountOnIntermediary; /*GGTRIA*/
-	private String beneficiaryBankSwiftBicCode; /*GGTRSA*/
+	private String settlementBankNameLine1; /*GGTRN1*/ /*GGTPN1*/
+	private String settlementBankNameLine2; /*GGTRN2*/ /*GGTPN2*/
+	private String settlementBankClearingBankCode; /*GGTRSK*/ /*GGTPSK*/
+	private String settlementBankClearingSortCode; /*GGTRIR*/ /*GGTPSR*/
+	private String settlementBankAccountOnIntermediary; /*GGTRIA*/
+	private String settlementBankSwiftBicCode; /*GGTRSA*/ /*GGTPSA*/
 	
-	private String counterpartyAccountOnBeneficiaryBank; /*GGTRCA*/
+	private String counterpartyAccountOnSettlementBank; /*GGTRCA*/ /*GGTPCA*/
 	private String counterpartyClearingSortCode; /*GGTRSR*/
 	
 	/* Third Party Information */
@@ -96,11 +98,17 @@ public class CashFlowSsi extends OpasOrganizationObject implements Serializable{
 	private String thirdPartyClearingSortCode; /*GGTRSC*/
 	private boolean thirdPartyBankIndicator; /*GGTRTB*/
 	
-	public long getCashFlowId() {
-		return cashFlowId;
+	public Long getCashFlowSiId() {
+		return cashFlowSiId;
 	}
-	public void setCashFlowId(long cashFlowId) {
-		this.cashFlowId = cashFlowId;
+	public void setCashFlowSiId(Long cashFlowSiId) {
+		this.cashFlowSiId = cashFlowSiId;
+	}
+	public CashFlow getCashFlow() {
+		return cashFlow;
+	}
+	public void setCashFlow(CashFlow cashFlow) {
+		this.cashFlow = cashFlow;
 	}
 	public FundTransferSystem getFts() {
 		return fts;
@@ -270,47 +278,47 @@ public class CashFlowSsi extends OpasOrganizationObject implements Serializable{
 	public void setIntermediaryBankSwiftBicCode(String intermediaryBankSwiftBicCode) {
 		this.intermediaryBankSwiftBicCode = intermediaryBankSwiftBicCode;
 	}
-	public String getBeneficiaryBankNameLine1() {
-		return beneficiaryBankNameLine1;
+	public String getSettlementBankNameLine1() {
+		return settlementBankNameLine1;
 	}
-	public void setBeneficiaryBankNameLine1(String beneficiaryBankNameLine1) {
-		this.beneficiaryBankNameLine1 = beneficiaryBankNameLine1;
+	public void setSettlementBankNameLine1(String settlementBankNameLine1) {
+		this.settlementBankNameLine1 = settlementBankNameLine1;
 	}
-	public String getBeneficiaryBankNameLine2() {
-		return beneficiaryBankNameLine2;
+	public String getSettlementBankNameLine2() {
+		return settlementBankNameLine2;
 	}
-	public void setBeneficiaryBankNameLine2(String beneficiaryBankNameLine2) {
-		this.beneficiaryBankNameLine2 = beneficiaryBankNameLine2;
+	public void setSettlementBankNameLine2(String settlementBankNameLine2) {
+		this.settlementBankNameLine2 = settlementBankNameLine2;
 	}
-	public String getBeneficiaryBankClearingBankCode() {
-		return beneficiaryBankClearingBankCode;
+	public String getSettlementBankClearingBankCode() {
+		return settlementBankClearingBankCode;
 	}
-	public void setBeneficiaryBankClearingBankCode(String beneficiaryBankClearingBankCode) {
-		this.beneficiaryBankClearingBankCode = beneficiaryBankClearingBankCode;
+	public void setSettlementBankClearingBankCode(String settlementBankClearingBankCode) {
+		this.settlementBankClearingBankCode = settlementBankClearingBankCode;
 	}
-	public String getBeneficiaryBankClearingSortCode() {
-		return beneficiaryBankClearingSortCode;
+	public String getSettlementBankClearingSortCode() {
+		return settlementBankClearingSortCode;
 	}
-	public void setBeneficiaryBankClearingSortCode(String beneficiaryBankClearingSortCode) {
-		this.beneficiaryBankClearingSortCode = beneficiaryBankClearingSortCode;
+	public void setSettlementBankClearingSortCode(String settlementBankClearingSortCode) {
+		this.settlementBankClearingSortCode = settlementBankClearingSortCode;
 	}
-	public String getBeneficiaryBankAccountOnIntermediary() {
-		return beneficiaryBankAccountOnIntermediary;
+	public String getSettlementBankAccountOnIntermediary() {
+		return settlementBankAccountOnIntermediary;
 	}
-	public void setBeneficiaryBankAccountOnIntermediary(String beneficiaryBankAccountOnIntermediary) {
-		this.beneficiaryBankAccountOnIntermediary = beneficiaryBankAccountOnIntermediary;
+	public void setSettlementBankAccountOnIntermediary(String settlementBankAccountOnIntermediary) {
+		this.settlementBankAccountOnIntermediary = settlementBankAccountOnIntermediary;
 	}
-	public String getBeneficiaryBankSwiftBicCode() {
-		return beneficiaryBankSwiftBicCode;
+	public String getSettlementBankSwiftBicCode() {
+		return settlementBankSwiftBicCode;
 	}
-	public void setBeneficiaryBankSwiftBicCode(String beneficiaryBankSwiftBicCode) {
-		this.beneficiaryBankSwiftBicCode = beneficiaryBankSwiftBicCode;
+	public void setSettlementBankSwiftBicCode(String settlementBankSwiftBicCode) {
+		this.settlementBankSwiftBicCode = settlementBankSwiftBicCode;
 	}
-	public String getCounterpartyAccountOnBeneficiaryBank() {
-		return counterpartyAccountOnBeneficiaryBank;
+	public String getCounterpartyAccountOnSettlementBank() {
+		return counterpartyAccountOnSettlementBank;
 	}
-	public void setCounterpartyAccountOnBeneficiaryBank(String counterpartyAccountOnBeneficiaryBank) {
-		this.counterpartyAccountOnBeneficiaryBank = counterpartyAccountOnBeneficiaryBank;
+	public void setCounterpartyAccountOnSettlementBank(String counterpartyAccountOnSettlementBank) {
+		this.counterpartyAccountOnSettlementBank = counterpartyAccountOnSettlementBank;
 	}
 	public String getCounterpartyClearingSortCode() {
 		return counterpartyClearingSortCode;

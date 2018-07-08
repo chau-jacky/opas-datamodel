@@ -3,11 +3,14 @@ package model.trade;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Iterator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import model.cashflow.CashFlow;
 
 @Entity
 @Table(name = "TRADE_FX_FORWARD")
@@ -184,6 +187,25 @@ public class TradeFxForward extends Trade implements Serializable {
 
 	public void setFxSupplementaryInfo(FxSupplementaryInformation fxSupplementaryInfo) {
 		this.fxSupplementaryInfo = fxSupplementaryInfo;
+	}
+	
+	public CashFlow getCashFlow(PaymentIndicator paymentIndicator) {
+		
+		CashFlow currentCashFlow = null;
+		
+		for (Iterator<CashFlow> iterator = getCashFlows().iterator(); iterator.hasNext();) {
+			
+			currentCashFlow = iterator.next();
+			if(paymentIndicator.equals(currentCashFlow.getCashFlowSi().getPaymentIndicator())) {
+				break;
+			} else {
+				currentCashFlow = null;
+			}
+					
+		}
+		
+		return currentCashFlow;
+		
 	}
 
 }

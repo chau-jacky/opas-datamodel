@@ -4,10 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import model.trade.ScopeOfOperation;
 
 @Entity
 @Table(name = "PARTY_COUNTERPARTY")
@@ -25,6 +29,10 @@ public class Counterparty extends Party implements Serializable {
 
 	@Column(name = "CMS_ID", length = 34)
 	private String cmsIdentifier;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "SCOPE_OF_OPERATION")
+	private ScopeOfOperation scopeOfOperation;
 
 	@Column(name = "ENTITY_OF_FUND", length = 34)
 	private String entityOfFund;
@@ -55,6 +63,14 @@ public class Counterparty extends Party implements Serializable {
 
 	public void setCmsIdentifier(String cmsIdentifier) {
 		this.cmsIdentifier = cmsIdentifier;
+	}
+	
+	public ScopeOfOperation getScopeOfOperation() {
+		return scopeOfOperation;
+	}
+
+	public void setScopeOfOperation(ScopeOfOperation scopeOfOperation) {
+		this.scopeOfOperation = scopeOfOperation;
 	}
 
 	public String getEntityOfFund() {

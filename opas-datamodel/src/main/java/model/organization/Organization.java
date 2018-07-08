@@ -27,6 +27,15 @@ public class Organization extends OpasObject implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "organization_seq")
 	@Column(name = "ORGANIZATION_ID", nullable = false)
 	private Long organizationId;
+	
+	@Column(name = "COUNTRY_CODE", nullable = false, length = 2)
+	private String countryCode;
+
+	@Column(name = "GROUP_MEMBER_ABBR", nullable = false, length = 4)
+	private String groupMemberAbbreviation;
+
+	@Column(name = "BRANCH_NO", nullable = false)
+	private int branchNumber;
 
 	@Column(name = "ORGANIZATION_ACRONYM", nullable = false, length = 8)
 	private String organizationAcronym;
@@ -48,15 +57,6 @@ public class Organization extends OpasObject implements Serializable {
 
 	@Column(name = "BIC_CODE", nullable = false, length = 10)
 	private String bicCode;
-
-	@Column(name = "COUNTRY_CODE", nullable = false, length = 2)
-	private String countryCode;
-
-	@Column(name = "GROUP_MEMBER_ABBR", nullable = false, length = 4)
-	private String groupMemberAbbreviation;
-
-	@Column(name = "BRANCH_NO", nullable = false)
-	private int branchNumber;
 	
 	private List<Department> departmentList;
 	
@@ -68,6 +68,30 @@ public class Organization extends OpasObject implements Serializable {
 
 	public void setOrganizationId(Long organizationId) {
 		this.organizationId = organizationId;
+	}
+	
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
+	}
+
+	public String getGroupMemberAbbreviation() {
+		return groupMemberAbbreviation;
+	}
+
+	public void setGroupMemberAbbreviation(String groupMemberAbbreviation) {
+		this.groupMemberAbbreviation = groupMemberAbbreviation;
+	}
+
+	public int getBranchNumber() {
+		return branchNumber;
+	}
+
+	public void setBranchNumber(int branchNumber) {
+		this.branchNumber = branchNumber;
 	}
 
 	public String getOrganizationAcronym() {
@@ -126,29 +150,6 @@ public class Organization extends OpasObject implements Serializable {
 		this.bicCode = bicCode;
 	}
 
-	public String getCountryCode() {
-		return countryCode;
-	}
-
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
-
-	public String getGroupMemberAbbreviation() {
-		return groupMemberAbbreviation;
-	}
-
-	public void setGroupMemberAbbreviation(String groupMemberAbbreviation) {
-		this.groupMemberAbbreviation = groupMemberAbbreviation;
-	}
-
-	public int getBranchNumber() {
-		return branchNumber;
-	}
-
-	public void setBranchNumber(int branchNumber) {
-		this.branchNumber = branchNumber;
-	}
 
 	public List<Department> getDepartmentList() {
 		return departmentList;

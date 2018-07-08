@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import model.OpasOrganizationObject;
-import model.party.Counterparty;
 import model.trade.Currency;
 import model.trade.Trade;
 
@@ -17,9 +16,11 @@ public class CashFlow extends OpasOrganizationObject implements Serializable {
 	private static final long serialVersionUID = 4868837355079926425L;
 
 	/* unique id of the cash flow */
-	private long cashFlowId;
+	private Long cashFlowId;
 	
-	/* unique cash flow reference numnber - 16 characters */
+	private CashFlowSi cashFlowSi;
+	
+	/* unique cash flow reference number - 16 characters */
 	private String cashFlowReference;
 	
 	/* used in the field 108 in header block 3 */
@@ -36,6 +37,18 @@ public class CashFlow extends OpasOrganizationObject implements Serializable {
 	
 	/* value date of the cash flow */
 	private Date valueDate;
+
+	public CashFlowSi getCashFlowSi() {
+		return cashFlowSi;
+	}
+
+	public void setCashFlowSi(CashFlowSi cashFlowSi) {
+		this.cashFlowSi = cashFlowSi;
+	}
+
+	public void setCashFlowId(Long cashFlowId) {
+		this.cashFlowId = cashFlowId;
+	}
 
 	public long getCashFlowId() {
 		return cashFlowId;
